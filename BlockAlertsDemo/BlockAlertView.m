@@ -38,8 +38,8 @@ static UIFont *buttonFont = nil;
         backgroundlandscape = [UIImage imageNamed:kAlertViewBackgroundLandscape];
         backgroundlandscape = [[backgroundlandscape stretchableImageWithLeftCapWidth:0 topCapHeight:kAlertViewBackgroundCapHeight] retain];
         
-        titleFont = [[UIFont boldSystemFontOfSize:20] retain];
-        messageFont = [[UIFont systemFontOfSize:18] retain];
+        titleFont = [[UIFont boldSystemFontOfSize:18] retain];
+        messageFont = [[UIFont systemFontOfSize:15] retain];
         buttonFont = [[UIFont boldSystemFontOfSize:18] retain];
     }
 }
