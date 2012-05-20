@@ -363,12 +363,17 @@ static UIFont *buttonFont = nil;
                                                   CGRect frame = _view.frame;
                                                   frame.origin.y = -frame.size.height;
                                                   _view.frame = frame;
-                                                  [[BlockBackground sharedInstance] reduceAlphaIfEmpty];
                                               } 
                                               completion:^(BOOL finished) {
-                                                  [[BlockBackground sharedInstance] removeView:_view];
-                                                  [_view release]; _view = nil;
-                                                  [self autorelease];
+                                                  
+                                                  [UIView animateWithDuration:0.1 animations:^{
+                                                      [[BlockBackground sharedInstance] reduceAlphaIfEmpty];
+                                                  }
+                                                    completion:^(BOOL finished) {
+                                                        [[BlockBackground sharedInstance] removeView:_view];
+                                                        [_view release]; _view = nil;
+                                                        [self autorelease];
+                                                  }];
                                               }];
                          }];
     }
