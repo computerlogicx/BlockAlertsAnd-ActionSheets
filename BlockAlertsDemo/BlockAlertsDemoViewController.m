@@ -27,10 +27,12 @@
 
     [alert setCancelButtonWithTitle:@"Cancel" block:nil];
     [alert setDestructiveButtonWithTitle:@"Kill!" block:nil];
-    [alert addButtonWithTitle:@"Show Action Sheet on top" block:^{
+    [alert addButtonWithTitle:@"Show Action Sheet on top" block:^
+    {
         [self showActionSheet:nil];
     }];
-    [alert addButtonWithTitle:@"Show another alert" block:^{
+    [alert addButtonWithTitle:@"Show another alert" block:^
+    {
         [self showAlert:nil];
     }];
     [alert show];
@@ -41,10 +43,12 @@
     BlockActionSheet *sheet = [BlockActionSheet sheetWithTitle:@"This is a sheet title that will span more than one line"];
     [sheet setCancelButtonWithTitle:@"Cancel Button" block:nil];
     [sheet setDestructiveButtonWithTitle:@"Destructive Button" block:nil];
-    [sheet addButtonWithTitle:@"Show Action Sheet on top" block:^{
+    [sheet addButtonWithTitle:@"Show Action Sheet on top" block:^
+    {
         [self showActionSheet:nil];
     }];
-    [sheet addButtonWithTitle:@"Show another alert" block:^{
+    [sheet addButtonWithTitle:@"Show another alert" block:^
+    {
         [self showAlert:nil];
     }];
     [sheet showInView:self.view];
@@ -54,7 +58,8 @@
 {
     [self showAlert:nil];
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
+    {
         [self showActionSheet:nil];
     });
 }
@@ -63,21 +68,27 @@
 {
     [self showActionSheet:nil];
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
+    {
         [self showAlert:nil];
     });
 }
 
 - (IBAction)goNuts:(id)sender
 {
-    for (int i=0; i<6; i++)
+    for (int i = 0; i < 6; i++)
     {
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.5 * i * NSEC_PER_SEC);
-        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void)
+        {
             if (arc4random() % 2 == 0)
+            {
                 [self showAlert:nil];
+            }
             else
+            {
                 [self showActionSheet:nil];
+            }
         });
     }
 }
@@ -86,10 +97,11 @@
 {
     UITextField *textField;
     BlockTextPromptAlertView *alert = [BlockTextPromptAlertView promptWithTitle:@"Prompt Title" message:@"With prompts you do have to keep in mind limited screen space due to the keyboard" textField:&textField];
-    
-    
+
+
     [alert setCancelButtonWithTitle:@"Cancel" block:nil];
-    [alert addButtonWithTitle:@"Okay" block:^{
+    [alert addButtonWithTitle:@"Okay" block:^
+    {
         NSLog(@"Text: %@", textField.text);
     }];
     [alert show];

@@ -10,10 +10,12 @@
 
 @interface BlockBackground : UIWindow
 
-+ (BlockBackground *) sharedInstance;
++ (BlockBackground *)sharedInstance;
 
 - (void)addToMainWindow:(UIView *)view;
+
 - (void)reduceAlphaIfEmpty;
+
 - (void)removeView:(UIView *)view;
 
 @end
