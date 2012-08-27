@@ -128,7 +128,7 @@ static BlockBackground *_sharedInstance = nil;
     {
         self.windowLevel = UIWindowLevelStatusBar;
         self.hidden = YES;
-        self.userInteractionEnabled = NO;
+        self.userInteractionEnabled = YES;
         self.backgroundColor = [UIColor colorWithWhite:0.4 alpha:0.5f];
 
         [[NSNotificationCenter defaultCenter] addObserver:self
