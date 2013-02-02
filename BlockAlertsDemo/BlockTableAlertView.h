@@ -18,8 +18,6 @@ typedef NSUInteger (^TableAlertNumberOfRowsBlock)(BlockTableAlertView *);
 
 typedef UITableViewCell *(^TableAlertCellSourceBlock)(BlockTableAlertView *, NSInteger);
 
-
-#define kNumMaximumVisibleRowsInTableView 15
 #define kDefaultRowHeight 40.0
 #define kTableCornerRadius 5
 
@@ -56,6 +54,9 @@ typedef enum
 - (id)initWithTitle:(NSString *)title message:(NSString *)message;
 
 - (void)reloadData;
+
+- (void)insertRowsAtIndexPaths:(NSArray*)rows;
+- (void)deleteRowsAtIndexPaths:(NSArray*)rows;
 
 + (BlockTableAlertView *)tableAlertWithTitle:(NSString *)title message:(NSString *)message;
 
